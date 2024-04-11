@@ -1,0 +1,29 @@
+version: "1"
+pipelines:
+  - name: pipeline:0.1.0
+    description: pipeline
+    env:
+      static:
+        - DOCKER_REGISTRY=ghcr.io
+        - GITHUB_ORG=my-org-name
+        - GITHUB_REPO=my-repo
+      secrets:
+        - DOCKER_REGISTRY_USER
+        - DOCKER_REGISTRY_PASS
+    events:
+      - "github:CampbellBrett/pipeline:pull_request.merged"
+      - "github:CampbellBrett/pipeline:pull_request.opened"
+      - "github:CampbellBrett/pipeline:pull_request.synchronize"
+    jobs:
+      - name: pipeline-build
+        description: example build step
+        packages:
+          - git
+        
+        steps:
+          - echo $DOCKER_REGISTRY_PASS | docker login -u $DOCKER_REGISTRY_USER
+            --password-stdin $DOCKER_REGISTRY
+          - git clone https://github.com/$GITHUB_ORG/$GITHUB_REPO && cd
+            $GITHUB_REPO
+          - docker build -t $DOCKER_REGISTRY/$GITHUB_ORG/$GITHUB_REPO:latest .
+          - docker push $DOCKER_REGISTRY/$GITHUB_ORG/$GITHUB_REPO:latest
