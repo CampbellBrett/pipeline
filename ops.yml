@@ -1,7 +1,7 @@
 version: "1"
 pipelines:
   - name: pipeline:0.1.0
-    description: pipeline
+    description: pipeline failure test
     env:
       static:
         - DOCKER_REGISTRY=ghcr.io
@@ -19,7 +19,6 @@ pipelines:
         description: example build step
         packages:
           - git
-        
         steps:
           - echo $DOCKER_REGISTRY_PASS | docker login -u $DOCKER_REGISTRY_USER
             --password-stdin $DOCKER_REGISTRY
