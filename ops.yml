@@ -1,7 +1,7 @@
 version: "1"
 pipelines:
   - name: pipeline:0.1.0
-    description: pipeline failure test 666
+    description: pipeline failure test 555
     env:
       static:
         - DOCKER_REGISTRY=ghcr.io
