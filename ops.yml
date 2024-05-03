@@ -1,6 +1,6 @@
 version: "1"
 pipelines:
-  - name: pipeline:0.9.9
+  - name: pipeline:0.9.12
     description: pipeline failure test prod
     env:
       static:
