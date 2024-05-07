@@ -1,6 +1,6 @@
 version: "1"
 pipelines:
-  - name: pipeline:0.1.0
+  - name: pipeline:9.9.9
     description: pipeline production test 2
     env:
       static:
