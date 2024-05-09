@@ -1,7 +1,7 @@
 # for more info visit https://cto.ai/docs
 version: "1"
 commands:
-  - name: pipeline-build:9.9.9
+  - name: pipeline-build:10.10.10
     description: example build step
     run: bash /ops/main.sh
     sdk: 2

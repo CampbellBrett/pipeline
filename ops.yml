@@ -1,6 +1,6 @@
 version: "1"
 pipelines:
-  - name: pipeline:9.9.9
+  - name: pipeline:10.10.10
     description: pipeline production test 3
     env:
       static:
@@ -19,11 +19,7 @@ pipelines:
         description: example build step
         packages:
           - git
-        
+          - npm
         steps:
-          - echo $DOCKER_REGISTRY_PASS | docker login -u $DOCKER_REGISTRY_USER
-            --password-stdin $DOCKER_REGISTRY
-          - git clone https://github.com/$GITHUB_ORG/$GITHUB_REPO && cd
-            $GITHUB_REPO
-          - docker build -t $DOCKER_REGISTRY/$GITHUB_ORG/$GITHUB_REPO:latest .
-          - docker push $DOCKER_REGISTRY/$GITHUB_ORG/$GITHUB_REPO:latest
+          - npm i
+          - npm run test

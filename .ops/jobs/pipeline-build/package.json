@@ -1,0 +1,14 @@
+{
+  "name": "pipeline",
+  "version": "1.0.0",
+  "description": "Pipeline test failure AI review",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "27.x"
+  }
+}
