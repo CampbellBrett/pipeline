@@ -19,7 +19,6 @@ pipelines:
         description: example build step
         packages:
           - git
-        
         steps:
           - echo $DOCKER_REGISTRY_PASS | docker login -u $DOCKER_REGISTRY_USER
             --password-stdin $DOCKER_REGISTRY
