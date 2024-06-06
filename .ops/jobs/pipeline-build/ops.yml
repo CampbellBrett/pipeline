@@ -2,6 +2,6 @@
 version: "1"
 commands:
   - name: pipeline-build:0.1.0
-    description: example build step test
+    description: example build step 2
     run: bash /ops/main.sh
     sdk: 2
